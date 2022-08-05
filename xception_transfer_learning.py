@@ -2,7 +2,7 @@
 Xception model transfer learning.
 """
 import tensorflow as tf
-# Importing this way because of keras lazy loading autocomplete
+# Importing this way because of keras lazy loading (want to use autocomplete)
 from tensorflow.python.keras.api import keras
 import data_loading
 
