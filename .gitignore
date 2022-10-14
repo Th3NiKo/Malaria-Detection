@@ -4,3 +4,4 @@ CNN_BASELINE/
 XCEPTION/
 dataset/
 __pycache__
+.vscode

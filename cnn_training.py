@@ -36,6 +36,7 @@ def training_pipeline(train_dataset: tf.data.Dataset,
     cnn_model.evaluate(test_dataset)
     cnn_model.save(MODEL_NAME)
 
+
 if __name__ == "__main__":
     train_data, validation_data, test_data = data_loading.create_image_datasets()
     training_pipeline(train_data, validation_data, test_data)

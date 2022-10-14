@@ -23,6 +23,7 @@ IMG_WIDTH, IMG_HEIGHT = (100, 100)
 
 random.seed(SEED)
 
+
 def train_test_split(actual_dataset_path: str, new_dataset_path: str,
                      split_value: float = 0.2):
     """
@@ -76,35 +77,37 @@ def train_test_split(actual_dataset_path: str, new_dataset_path: str,
 
 
 def create_image_datasets(train_data_dir: str = os.path.join(SPLIT_DATASET_PATH, "Train"),
-                         test_data_dir: str = os.path.join(SPLIT_DATASET_PATH, "Test"),
-                         validation_split: float = 0.2,
-                         image_size: Tuple = (IMG_WIDTH, IMG_HEIGHT),
-                         batch_size = BATCH_SIZE) -> \
-                         Tuple[tf.data.Dataset, tf.data.Dataset, tf.data.Dataset]:
+                          test_data_dir: str = os.path.join(SPLIT_DATASET_PATH, "Test"),
+                          validation_split: float = 0.2,
+                          image_size: Tuple = (IMG_WIDTH, IMG_HEIGHT),
+                          batch_size=BATCH_SIZE) -> Tuple[tf.data.Dataset, tf.data.Dataset, tf.data.Dataset]:
     """
     Creates tensorflow image datasets for train, validation and test sets.
     """
 
     train_dataset = tf.keras.utils.image_dataset_from_directory(
-                        train_data_dir,
-                        validation_split=validation_split,
-                        subset="training",
-                        seed=SEED,
-                        image_size=image_size,
-                        batch_size=batch_size)
+        train_data_dir,
+        validation_split=validation_split,
+        subset="training",
+        seed=SEED,
+        image_size=image_size,
+        batch_size=batch_size
+    )
 
     validation_dataset = tf.keras.utils.image_dataset_from_directory(
-                            train_data_dir,
-                            validation_split=validation_split,
-                            subset="validation",
-                            seed=SEED,
-                            image_size=image_size,
-                            batch_size=batch_size)
+        train_data_dir,
+        validation_split=validation_split,
+        subset="validation",
+        seed=SEED,
+        image_size=image_size,
+        batch_size=batch_size
+    )
 
     test_dataset = tf.keras.utils.image_dataset_from_directory(
-                        test_data_dir,
-                        seed=SEED,
-                        image_size=image_size,
-                        batch_size=batch_size)
+        test_data_dir,
+        seed=SEED,
+        image_size=image_size,
+        batch_size=batch_size
+    )
 
     return train_dataset, validation_dataset, test_dataset

@@ -29,7 +29,7 @@ def training_pipeline(train_dataset: tf.data.Dataset,
 
     xception_model.compile(loss=loss,
                            optimizer=optimizer,
-                           metrics=["accuracy","Recall", "Precision"])
+                           metrics=["accuracy", "Recall", "Precision"])
 
     xception_model.fit(train_dataset,
                        validation_data=validation_dataset,
@@ -38,6 +38,7 @@ def training_pipeline(train_dataset: tf.data.Dataset,
 
     xception_model.evaluate(test_dataset)
     xception_model.save(MODEL_NAME)
+
 
 if __name__ == "__main__":
     train_data, validation_data, test_data = data_loading.create_image_datasets()
