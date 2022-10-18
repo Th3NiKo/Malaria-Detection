@@ -12,7 +12,7 @@ def create_model():
     """
     resize_and_rescale = keras.Sequential([
         keras.layers.Resizing(data_loading.IMG_WIDTH, data_loading.IMG_HEIGHT),
-        keras.layers.Rescaling(1./255)
+        keras.layers.Rescaling(1. / 255)
     ])
 
     data_augmentation = keras.Sequential([
